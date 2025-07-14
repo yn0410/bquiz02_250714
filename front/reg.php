@@ -24,12 +24,12 @@
             <tr>
                 <td>Step4:信箱(忘記密碼時使用)</td>
                 <td>
-                    <input type="email" name="email" id="email">
+                    <input type="text" name="email" id="email">
                 </td>
             </tr>
             <tr>
                 <td>
-                    <input type="button" value="註冊">
+                    <input type="button" value="註冊" onclick="reg()">
                     <input type="reset" value="清除">
                 </td>
                 <td></td>
@@ -37,3 +37,33 @@
         </table>
     </form>
 </fieldset>
+<script>
+    function reg(){
+        let data={
+            acc:$("#acc").val(),
+            pw:$("#pw").val(),
+            pw2:$("#pw2").val(),
+            email:$("#email").val()
+        };
+        if(data.acc=='' || data.pw=='' || data.pw2=='' || data.email==''){
+            alert("不可空白");
+        }else if(data.pw != data.pw2){
+            alert("密碼錯誤");
+        }else{
+            $.get("./api/chk_acc.php",data,(res)=>{ //為安全著想 data 可改成-> {acc:data.acc}
+                if(parseInt(res)){ //parseInt(res)轉型，轉成整數
+                    alert("帳號重複");
+                }else{
+                    $.post("./api/reg.php",data,(res)=>{
+                        if(parseInt(res)){ //parseInt(res)轉型，轉成整數
+                            alert("註冊成功，歡迎加入");
+                            location.href="?do=login";
+                        }else{ //db錯誤 || 資料錯誤
+                            alert("註冊失敗，請稍後再試");
+                        }
+                    })
+                }
+            })
+        }
+    }
+</script>
