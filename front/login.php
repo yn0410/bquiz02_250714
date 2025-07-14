@@ -39,9 +39,9 @@
                 $.get("./api/chk_pw.php",data,(res)=>{
                     if(parseInt(res)){
                         //登入成功
-                        if(data.acc=='admin'){
+                        if(data.acc=='admin'){ //管理者
                             location.href="back.php"
-                        }else{
+                        }else{ //一般user
                             location.href="index.php";
                         }
                     }else{
