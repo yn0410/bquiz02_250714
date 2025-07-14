@@ -55,6 +55,7 @@
                     alert("帳號重複");
                 }else{
                     $.post("./api/reg.php",data,(res)=>{
+                        // console.log('res',res);
                         if(parseInt(res)){ //parseInt(res)轉型，轉成整數
                             alert("註冊成功，歡迎加入");
                             location.href="?do=login";
