@@ -31,7 +31,7 @@
                	<a class="blo" href="?do=pop">人氣文章</a>
                	<a class="blo" href="?do=know">講座訊息</a>
                	<a class="blo" href="?do=que">問卷調查</a>
-               	                 </div>
+            </div>
             <div class="hal" id="main">
             	<div>
             		<marquee style="width:78%;">請民眾踴躍投稿電子報，讓電子報成為大家相互交流、分享的園地！詳見最新文章</marquee>
