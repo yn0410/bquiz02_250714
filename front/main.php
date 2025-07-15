@@ -10,6 +10,12 @@
         padding: 5px 10px;
         border: 1px solid black;
         margin-left: -1px;
+        background-color: #eee;
+    }
+
+    .tab.active{
+        background-color: white;
+        border-bottom: 1px solid white;
     }
 
     .post{
@@ -18,18 +24,24 @@
         height: 430px;
         border: 1px solid black;
         overflow: auto;
+        margin-top: -1px;
+        display: none;
+    }
+
+    .post.active{
+        display: block;
     }
 </style>
 
 
 <div class="tabs">
-    <div class="tab" id="tab1">健康新知</div>
+    <div class="tab active" id="tab1">健康新知</div>
     <div class="tab" id="tab2">菸害防治</div>
     <div class="tab" id="tab3">癌症防治</div>
     <div class="tab" id="tab4">慢性病防治</div>
 </div>
 <div class="posts">
-    <div class="post" id="post1">
+    <div class="post active" id="post1">
         <h2>健康新知</h2>
         <pre>
 缺乏運動已成為影響全球死亡率的第四大危險因子-國人無規律運動之比率高達72.2%
@@ -125,3 +137,14 @@
         </pre>
     </div>
 </div>
+
+<script>
+    $(".tab").on("click",function(){
+        $(".tab").removeClass("active");
+        $(this).addClass("active");
+
+        let post=$(this).attr('id').replace('tab','post');
+        $(".post").removeClass("active");
+        $("#"+post).addClass("active");
+    })
+</script>
