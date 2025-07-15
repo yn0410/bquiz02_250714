@@ -2,6 +2,17 @@
     目前位置：首頁 > 最新文章區
 </div>
 
+<style>
+    .title{
+        cursor: pointer;
+        color: blue;
+    }
+    .title:hover{
+        text-decoration: underline;
+        color:green;
+    }
+</style>
+
 <table style="width: 95%; margin: auto;">
     <tr class="ct">
         <td width="20%">標題</td>
@@ -18,10 +29,10 @@
         foreach($rows as $idx => $row):    
     ?>
     <tr>
-        <td><?=$row['title'];?></td>
+        <td class="title"><?=$row['title'];?></td>
         <td>
             <div class="short"><?=mb_substr($row['text'],0,30);?>...</div>
-            <div class="all"></div>
+            <div class="all" style="display: none;"><?=nl2br($row['text']);?></div>
         </td>
         <td></td>
     </tr>
@@ -43,4 +54,11 @@
     }
 
     ?>
-    </div>
+</div>
+
+<script>
+    $(".title").on("click",function(){
+        $(this).next().find(".short,.all").toggle();
+        //$(this).next().find(".all").toggle();
+    })
+</script>
