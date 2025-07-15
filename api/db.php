@@ -152,6 +152,7 @@ $User=new DB('users');
 $Visit=new DB('visit');
 $News=new DB('news');
 $Que=new DB('que');
+$Log=new DB('log');
 
 
 //測試資料庫連線及功能正常

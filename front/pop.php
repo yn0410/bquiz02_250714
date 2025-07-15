@@ -53,7 +53,7 @@
             </div>
         </td>
         <td>
-            <span>3</span>個人說
+            <span><?=$row['good'];?></span>個人說
             <img src="./icon/02B03.jpg" style="width:18px;">
             <?php
             if(isset($_SESSION['login'])):
