@@ -143,6 +143,7 @@ class DB{
 
 $User=new DB('users');
 $Visit=new DB('visit');
+$News=new DB('news');
 
 
 //測試資料庫連線及功能正常
