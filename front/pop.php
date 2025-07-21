@@ -1,4 +1,5 @@
 <!-- 老師在新分支"adv"中有改東西 在這個檔案中 -->
+<!-- 老師在新分支"adv2"中有改東西 在這個檔案中 -->
 <div class="nav">
     目前位置：首頁 > 人氣文章區
 </div>
@@ -55,12 +56,14 @@
         </td>
         <td>
             <span><?=$row['good'];?></span>個人說
+            <!-- <span class="num"> 同上 </span>個人說 -->
             <img src="./icon/02B03.jpg" style="width:18px;">
             <?php
             if(isset($_SESSION['login'])):
                 $chk=$Log->count(['news'=>$row['id'],'user'=>$_SESSION['login']]);
             ?>
                 <a href="#" onclick="good(<?=$row['id'];?>/*,this*/)"><?=($chk)?'-收回讚':'-讚';?></a>
+                <!-- <a href="#" class="g" data-id="<?php //$row['id'];?>"><?php //($chk)?'-收回讚':'-讚';?></a> -->
             <?php
             endif;
             ?>
@@ -117,4 +120,28 @@
         })
 
     }
+    
+    /* 分支"adv2": 不要function good()了
+    $('.g').on('click',(event)=>{
+        let target=event.target
+        let news=$(target).data('id');
+        
+            $.post("./api/good.php",{news},()=>{
+            let good;
+            switch($(target).text()){
+                case '-讚':
+                    $(target).text("-收回讚")
+                    good=parseInt($(target).prev().prev().text())+1
+                break;
+                case '-收回讚':
+                    $(target).text("-讚")
+                    good=parseInt($(target).prev().prev().text())-1
+                    break;
+                }
+                
+                $(target).prev().prev().text(good)
+                //location.reload();
+            })
+
+    }) */
 </script>
