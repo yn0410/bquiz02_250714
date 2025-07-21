@@ -58,7 +58,7 @@
             <?php
             if(isset($_SESSION['login'])):
             ?>
-                <a href="">-讚</a>
+                <a href="#" onclick="good(<?=$row['id'];?>)"><?=($chk)?'-收回讚':'-讚';?></a>
             <?php
             endif;
             ?>
@@ -92,4 +92,11 @@
             $(this).next().find(".pop").hide();
         }
     )
+
+    function good(news){
+        $.post("./api/good.php",{news},function(){
+            location.reload();
+        })
+
+    }
 </script>
