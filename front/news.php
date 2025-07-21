@@ -21,7 +21,7 @@
     </tr>
     <?php 
         $total=$News->count();
-        $div=3;
+        $div=5;
         $pages=ceil($total/$div);
         $now=$_GET['p']??1;
         $start=($now-1)*$div;
