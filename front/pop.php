@@ -57,6 +57,7 @@
             <img src="./icon/02B03.jpg" style="width:18px;">
             <?php
             if(isset($_SESSION['login'])):
+                $chk=$Log->count(['news'=>$row['id'],'user'=>$_SESSION['login']]);
             ?>
                 <a href="#" onclick="good(<?=$row['id'];?>)"><?=($chk)?'-收回讚':'-讚';?></a>
             <?php
